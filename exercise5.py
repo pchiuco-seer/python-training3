@@ -49,4 +49,29 @@ for x in range(0,len(str_in)):
 		buff += str_in[x]
 print out_put
 
+numerals = {}
+numerals["I"] = 1
+numerals["V"] = 5
+numerals["X"] = 10
+numerals["L"] = 50
+numerals["C"] = 100
+numerals["D"] = 500
+numerals["M"] = 1000
+
+roman_numeral = "MCMXCIX"
+hindu_arabic = 0;
+z=0
+while z <= len(roman_numeral)-2:
+	print "Curr: "+roman_numeral[z]+" ha: "+str(numerals[roman_numeral[z]])
+	print "Next: "+roman_numeral[z+1]+" ha: "+str(numerals[roman_numeral[z+1]])
+	if numerals[roman_numeral[z]] < numerals[roman_numeral[z+1]]:
+		hindu_arabic += numerals[roman_numeral[z+1]] - numerals[roman_numeral[z]]
+		z += 2
+	else:
+		hindu_arabic += numerals[roman_numeral[z]]
+		z += 1
+print hindu_arabic
+
+
+
 
