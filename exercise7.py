@@ -21,8 +21,6 @@ def operate(list_input,**kwds):
 
 	def mean():
 		mean_sum = sum_val()
-		print mean_sum
-		print len(list_input)
 		return mean_sum/float(len(list_input))
 
 	def median():
@@ -50,21 +48,19 @@ def operate(list_input,**kwds):
 				mode_vals.append(y)
 		return mode_vals
 
-
-	if kwds['ops'] == 'sum':
-		return sum_val()
-	elif kwds['ops'] == 'max':
-		return max_val()
-	elif kwds['ops'] == 'min':
-		return min_val()
-	elif kwds['ops'] == 'mean':
-		return mean()
-	elif kwds['ops'] == 'median':
-		return median()
-	elif kwds['ops'] == 'mode':
-		return mode()
+	output = {}
+	output["sum"] = sum_val()
+	output["max"] = max_val()
+	output["min"] = min_val()
+	output["mean"] = mean()
+	output["median"] = median()
+	output["mode"] = mode()
+	
+	if(kwds["ops"] in output.keys()):
+		print output[str(kwds["ops"])]
 	else:
-		return 0
+		print "Invalid option"
+
 
 
 
