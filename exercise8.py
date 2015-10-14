@@ -15,29 +15,28 @@ def unique_chars(input):
 
 @palindrome_list
 def same_char_instance(input):
+	print input
 	instances_per_word = []
+
 	for x in xrange(0,len(input)):
+		unique = set(input[x])
 		instances = {}
-		for y in xrange(0,len(input[x])-1):
-			if y < len(input[x])-2:
-				if input[x][y] == input[x][y+1] and input[x][y+1] !=  input[x][y+2]:
-					key = input[x][y:y+2]
-					if key in instances.keys():
-						instances[key] += 1
+		for z in unique:
+			groups = input[x].split(z)
+			groups = [i for i in groups if i != '']
+			for y in groups:
+				if len(y) == 2:
+					if y in instances.keys():
+						instances[y] += 1
 					else:
-						instances[key] = 1
-			else:
-				if input[x][y] == input[x][y+1]:
-					key = input[x][y]+input[x][y+1]
-					if key in instances.keys():
-						instances[key] += 1
-					else:
-						instances[key] = 1
+						instances[y] = 1
 		instances_per_word.append(instances)
 	return instances_per_word	
 
 
 
-list_input = ["apple","bub","dud","string"]
+list_input = ["apple","bub","dud","string","10010001001"]
+
+
 print unique_chars(list_input)
 print same_char_instance(list_input)
