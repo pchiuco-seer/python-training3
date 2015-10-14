@@ -15,7 +15,6 @@ def unique_chars(input):
 
 @palindrome_list
 def same_char_instance(input):
-	print input
 	instances_per_word = []
 
 	for x in xrange(0,len(input)):
